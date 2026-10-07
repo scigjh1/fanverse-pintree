@@ -1,53 +1,31 @@
-# Pintree
+# FanVerse · 追星与电影 IP 灵感收藏
 
-<div align="center">
+基于 [Pintree](https://github.com/Pintree-io/pintree) 定制的个人泛娱乐产品 Demo。沿用原项目收藏管理与界面。
 
-[English](./README.md) | [简体中文](./README-zh.md)
+![FanVerse 电影收藏页面](docs/screenshots/film.jpg)
 
-  <h3>Pintree - Turn Your Browser Bookmarks into a Directory Website</h3>
-  <p>Create and monetize your own directory website from browser bookmarks in minutes.</p>
-</div>
+## 本次修改
 
-## 🔗 Links
+- 4 个主题集合：追星现场、电影宇宙、游戏灵感、美妆灵感。
+- 16 条官方内容入口与视觉样例，保留搜索、集合切换、卡片/列表功能。
+- FanVerse 紫色品牌主题。
+- SQLite 本地演示配置，免 PostgreSQL 服务器。
 
-- [Pintree Official Website](https://pintree.io)
-- [Demo](https://demo.pintree.io)
-- [Documentation](https://docs.pintree.io)
-- [Changelog](https://docs.pintree.io/en/changelog)
+## 运行
 
-## ✨ Features
+环境：Node.js 22.13+ 与 pnpm。
 
-### Basic Version (Free)
-- 📑 Unlimited Import/Export Bookmarks
-- 📁 Bookmark Management
-- 🎨 Basic Theme Customization
-- 🔍 Bookmark Search
+```bash
+pnpm install --frozen-lockfile
+pnpm exec prisma generate
+node scripts/setup-demo.mjs
+pnpm dev --port 3102
+```
 
-### [Professional Version (PRO)](https://www.pintree.io/#pricing)
-- 📑 All Basic Version Features
-- 📚 Multiple Collection Switching
-- 🔒 Private Collections
-- 📢 Multiple Ad Space Configuration
-- 🤖 AI Search
-- 🎯 Professional SEO Optimization
-- 📊 Detailed Access Statistics
-- 💻 Priority Technical Support
-- 🕒 Lifetime Access
-- 🔄 Free Lifetime Updates
+打开 http://localhost:3102 。不要提交本地数据库或环境变量。样例只链接官方内容，不托管歌曲、视频或影视作品。
 
-## 🛠️ Tech Stack
+## 产品材料
 
-- **Frontend&Backend**: Next.js
-- **Deployment**: Vercel
-- **Database**: PostgreSQL
+[产品方案](docs/PRODUCT.md) · [验收记录](docs/QA.md) · [上游与授权](UPSTREAM.md) · [原始 README](README.upstream.md)
 
-## 👥 Community
-
-- Twitter: [@pintree_io](https://twitter.com/pintree_io)
-- GitHub: [github.com/Pintree-io](https://github.com/Pintree-io)
-- Discord: [Join Community](https://discord.gg/gJTrkHFg)
-- Email: feedback@pintree.io
-
-## ❤️ Contributing
-
-We welcome Issues and Pull Requests to help improve this documentation.
+MIT License，保留原 LICENSE。品牌属于各自权利人，演示与品牌无关联；图片为 Unsplash 氛围样例。

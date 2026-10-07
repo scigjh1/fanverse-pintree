@@ -368,7 +368,7 @@ export function WebsiteSidebar({
                     <Skeleton className="w-[260px] h-[60px]" />
                   ) : (
                     <Image
-                      src={images[0]?.url || "/logo.png"}
+                      src={images[0]?.url || "/fanverse-logo.svg"}
                       alt="Logo"
                       width={260}
                       height={60}
@@ -393,7 +393,7 @@ export function WebsiteSidebar({
             ) : (
               <div className="flex flex-col items-center justify-center px-4 py-8 text-sm text-muted-foreground space-y-2">
                 <Folder className="h-8 w-8 opacity-50" />
-                <span>No folders yet</span>
+                <span>按上方主题探索收藏</span>
               </div>
             )}
           </SidebarMenu>

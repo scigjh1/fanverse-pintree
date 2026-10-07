@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
-import { Prisma } from "@prisma/client";
+import { Prisma } from "@/generated/prisma";
 
 export async function PATCH(
   request: Request,
@@ -22,15 +22,15 @@ export async function PATCH(
       const existingCollection = await prisma.collection.findFirst({
         where: {
           OR: [
-            { 
+            {
               name: {
-                mode: 'insensitive',
+
                 equals: name
               }
             },
-            { 
+            {
               slug: {
-                mode: 'insensitive',
+
                 equals: slug
               }
             }
@@ -104,4 +104,3 @@ export async function DELETE(
     );
   }
 }
-

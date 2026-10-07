@@ -51,7 +51,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 import { prisma } from "@/lib/prisma";
 import { randomUUID } from 'crypto';
-import { Folder } from "@prisma/client";
+import { Folder } from "@/generated/prisma";
 
 export const maxDuration = 60;
 export const dynamic = "force-dynamic";

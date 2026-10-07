@@ -93,3 +93,5 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none;             /* Chrome, Safari and Opera */
 }
+/* FanVerse theme extension; base Pintree layout is retained. */
+:root { --primary: 263 70% 50%; --ring: 263 70% 50%; --background: 270 25% 99%; }

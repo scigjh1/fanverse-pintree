@@ -279,7 +279,7 @@ export function BookmarkGrid({
         </div>
 
         {/* 内容区域骨架屏 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {[...Array(12)].map((_, i) => (
             <Skeleton key={i} className="h-[90px] rounded-2xl" />
           ))}
@@ -295,7 +295,7 @@ export function BookmarkGrid({
       {enableSearch && (
         <div className="flex justify-center mt-4 mb-12">
           <SearchBar
-            placeholder="Search bookmarks..."
+            placeholder="搜索艺人、电影或灵感内容..."
             onSearch={performBookmarkSearch}
             currentEngine={currentEngine}
             onEngineChange={setCurrentEngine}
@@ -356,8 +356,8 @@ export function BookmarkGrid({
           {/* 搜索结果显示 */}
           {searchResults.length > 0 ? (
             <div className="space-y-4">
-              <h2 className="text-xl font-semibold">Search results ({totalResults})</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+              <h2 className="text-xl font-semibold">搜索结果 ({totalResults})</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {searchResults.map((bookmark) => (
                   <BookmarkCard
                     key={bookmark.id}
@@ -372,7 +372,7 @@ export function BookmarkGrid({
             </div>
           ) : inputValue ? (
             <div className="text-center text-gray-500 py-12">
-              No related results found
+              没有找到匹配的内容，试试其他关键词。
             </div>
           ) : (
             // 原有的文件夹和书签显示逻辑，非搜索状态
@@ -386,7 +386,7 @@ export function BookmarkGrid({
                       {currentFolderId ? breadcrumbs[breadcrumbs.length - 1]?.name : collectionName}
                     </h2>
                   )}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {currentBookmarks.map((bookmark) => (
                       <BookmarkCard
                         key={bookmark.id}
@@ -421,7 +421,7 @@ export function BookmarkGrid({
                     )}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     {subfolder.items.slice(0, 50).map((item) => (
                       item.type === 'folder' ? (
                         <FolderCard

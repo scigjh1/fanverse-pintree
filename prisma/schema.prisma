@@ -1,9 +1,10 @@
 generator client {
   provider = "prisma-client-js"
+  output = "../src/generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -78,7 +79,7 @@ model Tag {
 model SiteSetting {
   id          String    @id @default(cuid())
   key         String    @unique                    // 设置项键名
-  value       String?    @db.Text                   // 设置项值，使用Text类型支持长文本
+  value       String?                       // 设置项值，使用Text类型支持长文本
   type        String    @default("string")         // 值类型：string, number, boolean, json
   group       String    @default("basic")          // 设置分组：basic, seo, feature
   description String?                              // 设置项描述

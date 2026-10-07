@@ -11,14 +11,8 @@ import type { Metadata, ResolvingMetadata } from 'next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 async function checkSiteSettingTableExists() {
-  const result: any = await prisma.$queryRaw`
-    SELECT EXISTS (
-      SELECT FROM information_schema.tables 
-      WHERE  table_schema = 'public'
-      AND    table_name   = 'SiteSetting'
-    );
-  `;
-  return result[0].exists;
+  const rows: any[] = await prisma.$queryRaw`SELECT name FROM sqlite_master WHERE type='table' AND name='SiteSetting'`;
+  return rows.length > 0;
 }
 
 type Props = {
@@ -33,7 +27,7 @@ export const generateMetadata = async (
   try {
     const tableExists = await checkSiteSettingTableExists();
     const keys = ["websiteName", "description", "keywords", "siteUrl", "faviconUrl", "ogImage"];
-    let settings: any;
+    let settings: any = [];
     if (tableExists) {
       settings = await prisma.siteSetting.findMany({
         where: {

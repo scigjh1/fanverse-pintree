@@ -30,37 +30,37 @@ export function BookmarkCard({
 }: BookmarkCardProps) {
   const [imageError, setImageError] = useState(false)
   const defaultIcon = '/assets/default-icon.svg'
-  
+
   // 清理 URL 显示，移除 http(s) 和尾部斜杠
   const cleanUrl = url.replace(/^https?:\/\//, '').replace(/\/$/, '')
-  
+
   return (
-    <div 
-      onClick={() => window.open(url, '_blank')}
+    <div
+      onClick={() => window.open(url, '_blank', 'noopener,noreferrer')}
       className={`
-        cursor-pointer flex items-center transition-shadow p-4 
+        cursor-pointer flex flex-col items-stretch overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg
         bg-card/50 dark:bg-gray-900 border border-[#eaebf3]
         dark:ring-gray-800 rounded-2xl hover:bg-card
         dark:hover:bg-gray-800
-        ${isFeatured ? 'border-2 border-blue-500' : ''}
+        ${isFeatured ? 'border-2 border-violet-400' : ''}
       `}
     >
-      <div className="relative w-8 h-8 mr-4 flex-shrink-0">
+      <div className="relative w-full h-48 flex-shrink-0">
         <Image
           src={imageError ? defaultIcon : (icon || defaultIcon)}
           alt={title}
           fill
-          className="rounded-full object-cover"
+          className="object-cover"
           onError={() => setImageError(true)}
           priority={isFeatured}
         />
       </div>
 
-      <div className="flex flex-col overflow-hidden">
+      <div className="flex flex-col overflow-hidden p-5">
         <h2 className="text-sm font-medium mb-1 truncate dark:text-gray-400">
           {title}
         </h2>
-        
+
         {description && (
           <p className="text-xs text-gray-500 dark:text-gray-600 mb-1 line-clamp-2">
             {description}

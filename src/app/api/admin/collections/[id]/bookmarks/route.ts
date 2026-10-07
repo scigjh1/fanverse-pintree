@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
-import { Folder, Bookmark } from "@prisma/client";
+import { Folder, Bookmark } from "@/generated/prisma";
 
 // 定义返回数据的类型
 interface FolderWithItems extends Folder {

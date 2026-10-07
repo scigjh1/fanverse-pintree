@@ -99,7 +99,7 @@ export function SearchBar({
   currentCollection = 'all', 
   onCollectionChange 
 }: SearchBarProps) {
-  const engines = ["Bookmarks", "Web Search", "AI Search"];
+  const engines = ["Bookmarks"]; // Demo exposes local collection search only.
   const [inputValue, setInputValue] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const editorRef = useRef<HTMLDivElement>(null);

@@ -13,7 +13,7 @@ import { TopBanner } from "@/components/website/top-banner";
 import { GetStarted } from "@/components/website/get-started";
 import { BackToTop } from "@/components/website/back-to-top";
 
-import { Collection } from "@prisma/client";
+import { Collection } from "@/generated/prisma";
 
 function SearchParamsComponent() {
   const pathname = usePathname();
@@ -127,6 +127,7 @@ function SearchParamsComponent() {
                   onBookmarkAdded={refreshData}
                 />
                 <div className="flex-1 overflow-y-auto">
+                  <section className="px-6 pb-8 pt-2 md:px-8"><p className="mb-4 text-xs uppercase tracking-[.3em] text-violet-500">FANVERSE / CURATE WHAT YOU LOVE</p><h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">收藏你的热爱，探索新的宇宙。</h1><p className="max-w-2xl text-sm leading-7 text-slate-500">舞台、电影、角色与美学。把值得反复打开的官方内容，收进属于自己的灵感收藏。</p><div className="mt-6 flex flex-wrap gap-3">{[["music","追星现场"],["film","电影宇宙"],["games","游戏灵感"],["beauty","美妆灵感"]].map(([slug,title]) => <a href={"/?collection="+slug} key={slug} className="rounded-full border border-violet-200 bg-white px-5 py-2 text-sm text-violet-700 transition hover:bg-violet-50">{title}</a>)}</div></section>
                   <BookmarkGrid
                     key={`${selectedCollectionId}-${currentFolderId}`}
                     collectionId={selectedCollectionId}

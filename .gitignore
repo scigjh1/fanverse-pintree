@@ -47,3 +47,9 @@ next-env.d.ts
 
 # 操作系统文件
 Thumbs.db
+# Private local demo storage
+.env
+*.db
+*.db-journal
+
+/src/generated/prisma/

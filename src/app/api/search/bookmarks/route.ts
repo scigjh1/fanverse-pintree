@@ -8,9 +8,9 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/options";
 function getSearchWhereClause(query: string, scope: string, collectionId: string | null, isAuthenticated: boolean) {
   const baseConditions = {
     OR: [
-      { title: { contains: query, mode: 'insensitive' as const } },
-      { description: { contains: query, mode: 'insensitive' as const } },
-      { url: { contains: query, mode: 'insensitive' as const } }
+      { title: { contains: query } },
+      { description: { contains: query } },
+      { url: { contains: query } }
     ]
   };
 
@@ -48,7 +48,7 @@ export async function GET(request: Request) {
   try {
     const session = await getServerSession(authOptions);
     const { searchParams } = new URL(request.url);
-    
+
     const query = searchParams.get("q");
     const scope = searchParams.get("scope") || "all";
     const collectionId = searchParams.get("collectionId");
@@ -90,8 +90,8 @@ export async function GET(request: Request) {
       })
     ]);
 
-    return NextResponse.json({ 
-      bookmarks, 
+    return NextResponse.json({
+      bookmarks,
       total,
       currentPage: page,
       totalPages: Math.ceil(total / pageSize)
