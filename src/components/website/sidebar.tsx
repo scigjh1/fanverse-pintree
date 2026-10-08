@@ -385,6 +385,23 @@ export function WebsiteSidebar({
       </SidebarHeader>
       <SidebarContent className="flex-1 min-h-0 overflow-y-auto hide-scrollbar">
         <SidebarGroup>
+          <div className="px-2 pb-3 pt-4 text-xs font-medium text-muted-foreground">兴趣集合</div>
+          <SidebarMenu>
+            {collections.map(collection => (
+              <SidebarMenuItem key={collection.id}>
+                <SidebarMenuButton isActive={collection.id === selectedCollectionId}
+                  onClick={() => onCollectionChange?.(collection.id)}>
+                  <Folder className="h-4 w-4" />
+                  <span>{collection.name}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+            <SidebarMenuItem>
+              <SidebarMenuButton asChild><Link href="/admin/collections"><FolderOpen className="h-4 w-4" /><span>管理收藏</span></Link></SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
+        <SidebarGroup>
           <SidebarMenu>
             {loading ? (
               <SidebarSkeleton />
@@ -393,7 +410,7 @@ export function WebsiteSidebar({
             ) : (
               <div className="flex flex-col items-center justify-center px-4 py-8 text-sm text-muted-foreground space-y-2">
                 <Folder className="h-8 w-8 opacity-50" />
-                <span>按上方主题探索收藏</span>
+                <span>当前集合的全部内容</span>
               </div>
             )}
           </SidebarMenu>

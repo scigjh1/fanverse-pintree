@@ -62,7 +62,7 @@ export function Header({
   return (
     <header className="flex h-16 shrink-0 items-center justify-between gap-2 border-b px-4">
       <div className="flex items-center gap-4">
-        <SidebarTrigger className="-ml-1" />
+        <SidebarTrigger className="-ml-1" /><span className="text-sm font-medium">FanVerse / 兴趣发现</span>
         <Separator orientation="vertical" className="h-4" />
       </div>
       

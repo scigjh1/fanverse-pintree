@@ -40,9 +40,9 @@ export function BookmarkCard({
       className={`
         cursor-pointer flex flex-col items-stretch overflow-hidden transition-all hover:-translate-y-1 hover:shadow-lg
         bg-card/50 dark:bg-gray-900 border border-[#eaebf3]
-        dark:ring-gray-800 rounded-2xl hover:bg-card
+        dark:ring-gray-800 rounded-lg hover:bg-card
         dark:hover:bg-gray-800
-        ${isFeatured ? 'border-2 border-violet-400' : ''}
+        ${isFeatured ? 'border-2 border-emerald-400' : ''}
       `}
     >
       <div className="relative w-full h-48 flex-shrink-0">
